@@ -1,0 +1,16 @@
+a := ListPlot[
+   Table[{Re[Exp[2*Pi*I*n/3]], Im[Exp[2*Pi*I*n/3]]}, {n, 0, 2}],
+   AspectRatio -> Automatic, PlotStyle -> {Red, PointSize[0.04]}];
+b := ParametricPlot[{Cos[t], Sin[t]}, {t, 0, 2*Pi}, 
+   PlotStyle -> {Thick, Blue}];
+c := Table[
+   Graphics[{Thick, Magenta, 
+     Arrow[{{0, 0}, {Re[Exp[2*Pi*I*n/3]], 
+        Im[Exp[2*Pi*I*n/3]]}}]}], {n, 0, 2}];
+d := Table[
+   Graphics[{Thick, Dashed, Purple, 
+     Line[{{Re[Exp[2*Pi*I*n/3]], 
+        Im[Exp[2*Pi*I*n/3]]}, {Re[Exp[2*Pi*I (n + 1)/3]], 
+        Im[Exp[2*Pi*I*(n + 1)/3]]}}]}], {n, 0, 2}];
+
+Show[a, b, c, d, PlotRange -> 1.25]
